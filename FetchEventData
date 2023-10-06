@@ -1,0 +1,36 @@
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+public class EventDataServiceTest {
+    private EventDataService eventDataService;
+    private HttpClient ""
+
+    @Before
+    public void setUp() {
+        httpClient = mock(HttpClient.class);
+        eventDataService = new EventDataService(httpClient);
+    }
+
+    @Test
+    public void testFetchEventData_Success() {
+        String apiResponse = "{\"eventId\": 123, \"eventName\": \"Sample Event\"}";
+
+        when(httpClient.get("https://api.example.com/events/123")).thenReturn(apiResponse);
+
+        Event event = eventDataService.fetchEventData(123);
+
+        assertEquals(123, event.getEventId());
+        assertEquals("Sample Event", event.getEventName());
+    }
+
+    @Test
+    public void testFetchEventData_Error() {
+        when(httpClient.get("https://api.example.com/events/456")).thenReturn(null);
+
+        Event event = eventDataService.fetchEventData(456);
+
+        assertNull(event);
+    }
+}
