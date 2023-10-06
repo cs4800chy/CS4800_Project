@@ -1,0 +1,30 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class CalculatorTest {
+
+    @Test
+    public void testAdd() {
+        Calculator calculator = new Calculator();
+
+        // Test case 1: Check addition of two positive numbers
+        int result1 = calculator.add(5, 7);
+        assertEquals(12, result1);
+
+        // Test case 2: Check addition of a positive and a negative number
+        int result2 = calculator.add(10, -3);
+        assertEquals(7, result2);
+
+        // Test case 3: Check addition of two negative numbers
+        int result3 = calculator.add(-8, -4);
+        assertEquals(-12, result3);
+
+        // Test case 4: Check addition of zero with a positive number
+        int result4 = calculator.add(0, 15);
+        assertEquals(15, result4);
+
+        // Test case 5: Check addition of zero with a negative number
+        int result5 = calculator.add(0, -9);
+        assertEquals(-9, result5);
+    }
+}
