@@ -1,0 +1,76 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-practice-kayleen-210017-authRole",
+      "UnauthRoleArn": "arn:aws:iam::001413739527:role/amplify-practice-kayleen-210017-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::001413739527:role/amplify-practice-kayleen-210017-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-practice-kayleen-210017-deployment",
+      "UnauthRoleName": "amplify-practice-kayleen-210017-unauthRole",
+      "StackName": "amplify-practice-kayleen-210017",
+      "StackId": "arn:aws:cloudformation:us-west-1:001413739527:stack/amplify-practice-kayleen-210017/8627efd0-6721-11ee-b8a5-069bdde0f9ab",
+      "AmplifyAppId": "d36fglvp4mfxfr"
+    }
+  },
+  "auth": {
+    "practice02cdb6bf": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-practice-kayleen-210017-deployment/amplify-cfn-templates/auth/practice02cdb6bf-cloudformation-template.json",
+        "logicalId": "authpractice02cdb6bf"
+      },
+      "lastPushTimeStamp": "2023-10-10T04:02:10.120Z",
+      "output": {
+        "UserPoolId": "us-west-1_Zm61MfG6D",
+        "AppClientIDWeb": "5l2do30bcekfn1rlioom8gjero",
+        "AppClientID": "6cr4i1r4rdo73j0ig9j541086i",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-1:001413739527:userpool/us-west-1_Zm61MfG6D",
+        "UserPoolName": "practice02cdb6bf_userpool_02cdb6bf"
+      },
+      "lastPushDirHash": "t9GOxYe1x1nFTSBAdkUMbUhUCSg="
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "practice02cdb6bf",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
+          ]
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups",
+      "lastPushTimeStamp": "2023-10-10T04:02:10.120Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-practice-kayleen-210017-deployment/amplify-cfn-templates/auth/userPoolGroups-cloudformation-template.json",
+        "logicalId": "authuserPoolGroups"
+      },
+      "output": {},
+      "lastPushDirHash": "SdEH+1YpgFZCBROLx9meAiyN9xk="
+    }
+  }
+}

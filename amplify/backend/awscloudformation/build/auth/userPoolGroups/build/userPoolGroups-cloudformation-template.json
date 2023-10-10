@@ -1,0 +1,50 @@
+{
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.6.0\",\"stackType\":\"auth-Cognito-UserPool-Groups\",\"metadata\":{}}",
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "env": {
+      "Type": "String"
+    },
+    "AuthRoleArn": {
+      "Type": "String"
+    },
+    "UnauthRoleArn": {
+      "Type": "String"
+    },
+    "authpractice02cdb6bfUserPoolId": {
+      "Type": "String",
+      "Default": "authpractice02cdb6bfUserPoolId"
+    },
+    "authpractice02cdb6bfAppClientID": {
+      "Type": "String",
+      "Default": "authpractice02cdb6bfAppClientID"
+    },
+    "authpractice02cdb6bfAppClientIDWeb": {
+      "Type": "String",
+      "Default": "authpractice02cdb6bfAppClientIDWeb"
+    }
+  },
+  "Conditions": {
+    "ShouldNotCreateEnvResources": {
+      "Fn::Equals": [
+        {
+          "Ref": "env"
+        },
+        "NONE"
+      ]
+    }
+  },
+  "Resources": {
+    "rdvGroup": {
+      "Type": "AWS::Cognito::UserPoolGroup",
+      "Properties": {
+        "UserPoolId": {
+          "Ref": "authpractice02cdb6bfUserPoolId"
+        },
+        "Description": "override success",
+        "GroupName": "rdv",
+        "Precedence": 1
+      }
+    }
+  }
+}
