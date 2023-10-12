@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   InputLabel,
   Select,
@@ -10,7 +10,7 @@ import {
 import { useForm, FormProvider } from 'react-hook-form';
 import FormInput from './CustomTextField';
 
-const AddressForm = () => {
+const AddressForm = ({checkoutToken,next}) => {
   const methods = useForm();
 
   // Handle form submission
@@ -32,17 +32,17 @@ const AddressForm = () => {
   return (
     <>
       <Typography variant="h6" gutterBottom>
-        Have your Code Sent
+        Shipping Info 
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <form onSubmit={methods.handleSubmit((data) => next({...data}))}>
           <Grid container spacing={3}>
             <FormInput required name="firstName" label="First name" />
             <FormInput required name="lastName" label="Last name" />
             <FormInput required name="email" label="Email Address" />
             <FormInput required name="cEmail" label="Confirm Email" />
             <Button type="submit" variant="contained" color="primary">
-              Send Confirmation Email
+              Next
             </Button>
           </Grid>
         </form>
