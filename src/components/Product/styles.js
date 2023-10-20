@@ -1,6 +1,5 @@
-import {makeStyles} from '@mui/styles'
-
-export default makeStyles(() => ({
+export default function makeStyles() {
+  return {
     root: {
       // maxWidth: 345, original width style
       maxWidth: '100%',
@@ -17,4 +16,5 @@ export default makeStyles(() => ({
       display: 'flex',
       justifyContent: 'space-between',
     },
-  }));
+  };
+}
